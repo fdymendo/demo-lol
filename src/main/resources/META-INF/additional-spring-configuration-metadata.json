@@ -1,0 +1,37 @@
+{"properties": [
+  {
+    "name": "demo-lol.lol.apikey",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.apikey'"
+  },
+  {
+    "name": "demo-lol.lol.summoner.by-name",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.summoner.by-name'"
+  },
+  {
+    "name": "demo-lol.lol.rotations",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.rotations'"
+  },
+  {
+    "name": "demo-lol.lol.ip",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.ip'"
+  },
+  {
+    "name": "demo-lol.lol.la1.url",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.la1.url'"
+  },
+  {
+    "name": "demo-lol.lol.summoner.by-puuid",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.summoner.by-puuid'"
+  },
+  {
+    "name": "demo-lol.lol.summoner.by-account",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.summoner.by-account'"
+  }
+]}
