@@ -40,6 +40,14 @@ public class UtilMethods {
 			message = RiotConstants.RIOT_403;
 			break;
 		default:
+			log.error("code error: {}",clientResponse.statusCode().value());
+			try {
+				log.error("Object response: {}",
+						objectMapper.writeValueAsString(clientResponse.bodyToFlux(Object.class).cast(Object.class)));
+			} catch (JsonProcessingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			message = "no se encontro mensaje";
 			break;
 		}

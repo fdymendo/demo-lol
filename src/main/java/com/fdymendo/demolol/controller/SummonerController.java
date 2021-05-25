@@ -2,6 +2,8 @@ package com.fdymendo.demolol.controller;
 
 import java.util.Map;
 
+import javax.net.ssl.SSLException;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestHeader;
@@ -23,7 +25,7 @@ public class SummonerController {
 
 	@GetMapping(value = "by-account")
 	public Mono<Object> getByAccount(@RequestHeader Map<String, String> headers,
-			@RequestParam("accountId") String accountId) throws ErrorClass {
+			@RequestParam("accountId") String accountId) throws ErrorClass, SSLException {
 		return iSummonerService.encryptedAccountId(headers, accountId);
 	}
 
