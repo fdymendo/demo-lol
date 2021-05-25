@@ -25,6 +25,17 @@ public class AppVariables {
 	private String token;
 	@Value("${demo-lol.lol.rotations}")
 	private String pathRotations;
+	
+	@Value("${demo-lol.lol.account}")
+	private String urlAccount;
+	@Value("${demo-lol.lol.account.by-puuid}")
+	private String urlAccountByPuuid;
+	@Value("${demo-lol.lol.account.by-riot-id}")
+	private String urlAccountByRiotId;	
+	@Value("${demo-lol.lol.account.active-shards}")
+	private String urlAccountActiveShards;
+	
+	
 
 	public String generateUrlServerRiot(Map<String, String> headers) throws ErrorClass {
 		String urlServerRiot = "";
