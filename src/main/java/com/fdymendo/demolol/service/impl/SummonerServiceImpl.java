@@ -10,7 +10,6 @@ import org.springframework.web.reactive.function.client.WebClient;
 import com.fdymendo.demolol.dto.SummonerResponse;
 import com.fdymendo.demolol.handler.ApplicationHandler;
 import com.fdymendo.demolol.service.ISummonerService;
-import com.fdymendo.demolol.util.AppConstants;
 import com.fdymendo.demolol.util.AppVariables;
 import com.fdymendo.demolol.util.UtilMethods;
 
@@ -33,11 +32,7 @@ public class SummonerServiceImpl implements ISummonerService {
 
 		return webClient.mutate().baseUrl(this.appVariables.generateUrlServerRiot(headers)).build().get()
 				.uri(uriBuilder -> uriBuilder.path(appVariables.getPathSummonerByAccount()).build(accountId))
-				.headers(headersClient -> {
-					headersClient.add(AppConstants.HTTP_HEADER_R_ACCEPT_CHARSET,
-							AppConstants.HTTP_HEADER_R_ACCEPT_CHARSET_V);
-					headersClient.add(AppConstants.HTTP_HEADER_TOKEN, this.appVariables.getToken());
-				}).exchangeToMono(response -> {
+				.exchangeToMono(response -> {
 					if (response.statusCode().is2xxSuccessful()) {
 						return response.bodyToMono(SummonerResponse.class);
 					} else {
@@ -50,11 +45,7 @@ public class SummonerServiceImpl implements ISummonerService {
 	public Mono<Object> summonerName(Map<String, String> headers, String summonerName) throws ApplicationHandler {
 		return webClient.mutate().baseUrl(this.appVariables.generateUrlServerRiot(headers)).build().get()
 				.uri(uriBuilder -> uriBuilder.path(appVariables.getPathSummonerByName()).build(summonerName))
-				.headers(headersClient -> {
-					headersClient.add(AppConstants.HTTP_HEADER_R_ACCEPT_CHARSET,
-							AppConstants.HTTP_HEADER_R_ACCEPT_CHARSET_V);
-					headersClient.add(AppConstants.HTTP_HEADER_TOKEN, this.appVariables.getToken());
-				}).exchangeToMono(response -> {
+				.exchangeToMono(response -> {
 					if (response.statusCode().is2xxSuccessful()) {
 						return response.bodyToMono(SummonerResponse.class);
 					} else {
@@ -68,11 +59,7 @@ public class SummonerServiceImpl implements ISummonerService {
 	public Mono<Object> encryptedPUUID(Map<String, String> headers, String pUUID) throws ApplicationHandler {
 		return webClient.mutate().baseUrl(this.appVariables.generateUrlServerRiot(headers)).build().get()
 				.uri(uriBuilder -> uriBuilder.path(appVariables.getPathSummonerByPuuid()).build(pUUID))
-				.headers(headersClient -> {
-					headersClient.add(AppConstants.HTTP_HEADER_R_ACCEPT_CHARSET,
-							AppConstants.HTTP_HEADER_R_ACCEPT_CHARSET_V);
-					headersClient.add(AppConstants.HTTP_HEADER_TOKEN, this.appVariables.getToken());
-				}).exchangeToMono(response -> {
+				.exchangeToMono(response -> {
 					if (response.statusCode().is2xxSuccessful()) {
 						return response.bodyToMono(SummonerResponse.class);
 					} else {
