@@ -14,7 +14,7 @@ import com.fdymendo.demolol.service.ISpectatorService;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/lol/spectator/v4")
+@RequestMapping("/v1/lol/spectator/v4")
 public class SpectatorController {
 	private final ISpectatorService iSpectatorService;
 

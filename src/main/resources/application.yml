@@ -4,7 +4,7 @@ server:
     include-message: always
 demo-lol:
   lol:
-    apikey: RGAPI-a3f0ada0-7806-450f-b916-1192725a1fbf
+    apikey: 
     path:
       rotations: /lol/platform/v3/champion-rotations
       summoner:
