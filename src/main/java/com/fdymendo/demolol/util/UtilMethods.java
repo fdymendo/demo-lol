@@ -36,10 +36,48 @@ public class UtilMethods {
 	private static String generateMessagePredefinedRiot(ClientResponse clientResponse) {
 		String message = "";
 		switch (clientResponse.statusCode().value()) {
+		case 400:
+			message = RiotConstants.RIOT_400;
+			break;
+		case 401:
+			message = RiotConstants.RIOT_401;
+			break;
 		case 403:
 			message = RiotConstants.RIOT_403;
 			break;
+		case 404:
+			message = RiotConstants.RIOT_404;
+			break;
+		case 405:
+			message = RiotConstants.RIOT_405;
+			break;
+		case 415:
+			message = RiotConstants.RIOT_415;
+			break;
+		case 429:
+			message = RiotConstants.RIOT_429;
+			break;
+		case 500:
+			message = RiotConstants.RIOT_500;
+			break;
+		case 502:
+			message = RiotConstants.RIOT_502;
+			break;
+		case 503:
+			message = RiotConstants.RIOT_503;
+			break;
+		case 504:
+			message = RiotConstants.RIOT_504;
+			break;
 		default:
+			log.error("code error: {}",clientResponse.statusCode().value());
+			try {
+				log.error("Object response: {}",
+						objectMapper.writeValueAsString(clientResponse.bodyToFlux(Object.class).cast(Object.class)));
+			} catch (JsonProcessingException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
 			message = "no se encontro mensaje";
 			break;
 		}

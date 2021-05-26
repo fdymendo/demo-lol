@@ -1,37 +1,42 @@
 {"properties": [
   {
+    "name": "demo-lol.lol.path.summoner.by-name",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.path.summoner.by-name'"
+  },
+  {
     "name": "demo-lol.lol.apikey",
     "type": "java.lang.String",
     "description": "A description for 'demo-lol.lol.apikey'"
   },
   {
-    "name": "demo-lol.lol.summoner.by-name",
+    "name": "demo-lol.lol.path.rotations",
     "type": "java.lang.String",
-    "description": "A description for 'demo-lol.lol.summoner.by-name'"
+    "description": "A description for 'demo-lol.lol.path.rotations'"
   },
   {
-    "name": "demo-lol.lol.rotations",
+    "name": "demo-lol.lol.path.summoner.by-account",
     "type": "java.lang.String",
-    "description": "A description for 'demo-lol.lol.rotations'"
+    "description": "A description for 'demo-lol.lol.path.summoner.by-account'"
   },
   {
-    "name": "demo-lol.lol.ip",
+    "name": "demo-lol.lol.path.summoner.by-puuid",
     "type": "java.lang.String",
-    "description": "A description for 'demo-lol.lol.ip'"
+    "description": "A description for 'demo-lol.lol.path.summoner.by-puuid'"
   },
   {
-    "name": "demo-lol.lol.la1.url",
+    "name": "demo-lol.la1.url",
     "type": "java.lang.String",
-    "description": "A description for 'demo-lol.lol.la1.url'"
+    "description": "A description for 'demo-lol.la1.url'"
   },
   {
-    "name": "demo-lol.lol.summoner.by-puuid",
+    "name": "demo-lol.lol.path.spectator.active-games.by-summoner",
     "type": "java.lang.String",
-    "description": "A description for 'demo-lol.lol.summoner.by-puuid'"
+    "description": "A description for 'demo-lol.lol.path.spectator.active-games.by-summoner'"
   },
   {
-    "name": "demo-lol.lol.summoner.by-account",
+    "name": "demo-lol.lol.path.spectator.featured-games",
     "type": "java.lang.String",
-    "description": "A description for 'demo-lol.lol.summoner.by-account'"
+    "description": "A description for 'demo-lol.lol.path.spectator.featured-games'"
   }
 ]}

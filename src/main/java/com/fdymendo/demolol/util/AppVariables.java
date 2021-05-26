@@ -5,28 +5,34 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Configuration;
 
-import com.fdymendo.demolol.handler.ErrorClass;
+import com.fdymendo.demolol.handler.ApplicationHandler;
 
 import lombok.Data;
 
 @Data
 @Configuration
 public class AppVariables {
-
-	@Value("${demo-lol.lol.la1.url}")
-	private String la1UrlServer;
-	@Value("${demo-lol.lol.summoner.by-account}")
-	private String urlSummonerByAccount;
-	@Value("${demo-lol.lol.summoner.by-name}")
-	private String urlSummonerByName;
-	@Value("${demo-lol.lol.summoner.by-puuid}")
-	private String urlSummonerByPuuid;
+	
 	@Value("${demo-lol.lol.apikey}")
 	private String token;
-	@Value("${demo-lol.lol.rotations}")
+	@Value("${demo-lol.la1.url}")
+	private String la1UrlServer;
+	
+	@Value("${demo-lol.lol.path.summoner.by-account}")
+	private String pathSummonerByAccount;
+	@Value("${demo-lol.lol.path.summoner.by-name}")
+	private String pathSummonerByName;
+	@Value("${demo-lol.lol.path.summoner.by-puuid}")
+	private String pathSummonerByPuuid;
+	@Value("${demo-lol.lol.path.rotations}")
 	private String pathRotations;
 
-	public String generateUrlServerRiot(Map<String, String> headers) throws ErrorClass {
+	@Value("${demo-lol.lol.path.spectator.active-games.by-summoner}")
+	private String pathSpectatorActiveGamesBySummoner;
+	@Value("${demo-lol.lol.path.spectator.featured-games}")
+	private String pathSpectatorFeatureGames;
+	
+	public String generateUrlServerRiot(Map<String, String> headers) throws ApplicationHandler {
 		String urlServerRiot = "";
 		switch (headers.getOrDefault(AppConstants.HTTP_HEADER_SERVER_RIOT,"")) {
 		case RiotConstants.RIOT_SERVER_LAN:
@@ -34,8 +40,9 @@ public class AppVariables {
 			break;
 
 		default:
-			throw new ErrorClass(AppConstants.ERROR_SERVER_RIOT);
+			throw new ApplicationHandler(AppConstants.ERROR_SERVER_RIOT);
 		}
 		return urlServerRiot;
 	}
+	
 }

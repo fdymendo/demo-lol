@@ -1,0 +1,19 @@
+server:
+  port: 8080
+  error:
+    include-message: always
+demo-lol:
+  lol:
+    apikey: 
+    path:
+      rotations: /lol/platform/v3/champion-rotations
+      summoner:
+        by-account: /lol/summoner/v4/summoners/by-account/{encryptedAccountId}
+        by-name: /lol/summoner/v4/summoners/by-name/{summonerName}
+        by-puuid: /lol/summoner/v4/summoners/by-puuid/{encryptedPUUID}
+      spectator:
+        active-games:
+          by-summoner: /lol/spectator/v4/active-games/by-summoner/{encryptedSummonerId}
+        featured-games: /lol/spectator/v4/featured-games
+  la1:
+    url: https://la1.api.riotgames.com
