@@ -1,4 +1,4 @@
-package com.fdymendo.demolol.model;
+package com.fdymendo.demolol.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
