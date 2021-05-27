@@ -15,5 +15,6 @@ demo-lol:
         active-games:
           by-summoner: /lol/spectator/v4/active-games/by-summoner/{encryptedSummonerId}
         featured-games: /lol/spectator/v4/featured-games
+      status: /lol/status/v4/platform-data
   la1:
     url: https://la1.api.riotgames.com
