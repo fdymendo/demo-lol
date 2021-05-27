@@ -32,6 +32,10 @@ public class AppVariables {
 	@Value("${demo-lol.lol.path.spectator.featured-games}")
 	private String pathSpectatorFeatureGames;
 	
+	@Value("${demo-lol.lol.path.status}")
+	private String pathStatus;
+	
+	
 	public String generateUrlServerRiot(Map<String, String> headers) throws ApplicationHandler {
 		String urlServerRiot = "";
 		switch (headers.getOrDefault(AppConstants.HTTP_HEADER_SERVER_RIOT,"")) {
