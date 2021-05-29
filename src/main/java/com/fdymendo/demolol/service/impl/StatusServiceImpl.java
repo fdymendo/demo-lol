@@ -18,10 +18,13 @@ public class StatusServiceImpl implements IStatusService {
 
 	private final AppVariables appVariables;
 	private final WebClient webClient;
+	private final UtilMethods utilMethods;
 
-	public StatusServiceImpl(AppVariables appVariables, WebClient webClient) {
+	public StatusServiceImpl(AppVariables appVariables, WebClient webClient,UtilMethods utilMethods) {
 		this.appVariables = appVariables;
 		this.webClient = webClient;
+		this.utilMethods = utilMethods;
+
 	}
 
 	@Override
@@ -31,7 +34,7 @@ public class StatusServiceImpl implements IStatusService {
 					if (response.statusCode().is2xxSuccessful()) {
 						return response.bodyToMono(PlatformDataDto.class);
 					} else {
-						return UtilMethods.writeResposeApiRiotError(response);
+						return utilMethods.writeResposeApiRiotError(response);
 					}
 				});
 	}

@@ -20,10 +20,12 @@ public class SummonerServiceImpl implements ISummonerService {
 
 	private final AppVariables appVariables;
 	private final WebClient webClient;
+	private final UtilMethods utilMethods;
 
-	public SummonerServiceImpl(AppVariables appVariables, WebClient webClient) {
+	public SummonerServiceImpl(AppVariables appVariables, WebClient webClient, UtilMethods utilMethods) {
 		this.appVariables = appVariables;
 		this.webClient = webClient;
+		this.utilMethods = utilMethods;
 	}
 
 	@Override
@@ -36,7 +38,7 @@ public class SummonerServiceImpl implements ISummonerService {
 					if (response.statusCode().is2xxSuccessful()) {
 						return response.bodyToMono(SummonerResponse.class);
 					} else {
-						return UtilMethods.writeResposeApiRiotError(response);
+						return utilMethods.writeResposeApiRiotError(response);
 					}
 				});
 	}
@@ -49,7 +51,7 @@ public class SummonerServiceImpl implements ISummonerService {
 					if (response.statusCode().is2xxSuccessful()) {
 						return response.bodyToMono(SummonerResponse.class);
 					} else {
-						return UtilMethods.writeResposeApiRiotError(response);
+						return utilMethods.writeResposeApiRiotError(response);
 					}
 				});
 
@@ -63,7 +65,7 @@ public class SummonerServiceImpl implements ISummonerService {
 					if (response.statusCode().is2xxSuccessful()) {
 						return response.bodyToMono(SummonerResponse.class);
 					} else {
-						return UtilMethods.writeResposeApiRiotError(response);
+						return utilMethods.writeResposeApiRiotError(response);
 					}
 				});
 	}

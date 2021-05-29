@@ -4,7 +4,7 @@ server:
     include-message: always
 demo-lol:
   lol:
-    apikey: 
+    apikey: RGAPI-b9e72161-6612-44ea-b3e1-fad4de18bc25
     path:
       rotations: /lol/platform/v3/champion-rotations
       summoner:
@@ -16,5 +16,16 @@ demo-lol:
           by-summoner: /lol/spectator/v4/active-games/by-summoner/{encryptedSummonerId}
         featured-games: /lol/spectator/v4/featured-games
       status: /lol/status/v4/platform-data
+      league:
+        challenger-leagues:
+          queue: /lol/league/v4/challengerleagues/by-queue/{queue}
+        entries: 
+          entries: /lol/league/v4/entries/{queue}/{tier}/{division}
+          by-summoner: /lol/league/v4/entries/by-summoner/{encryptedSummonerId}
+        grand-master-leagues:
+          by-queue: /lol/league/v4/grandmasterleagues/by-queue/{queue}
+        leagues:  /lol/league/v4/leagues/{leagueId}
+        master-leagues:
+          by-queue: /lol/league/v4/masterleagues/by-queue/{queue}        
   la1:
     url: https://la1.api.riotgames.com

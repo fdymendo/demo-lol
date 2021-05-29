@@ -14,7 +14,7 @@ import com.fdymendo.demolol.service.IChampionsService;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/v1/champion/rotations")
+@RequestMapping("/champion/v1/champion/rotations")
 public class ChampionController {
 
 	@Autowired

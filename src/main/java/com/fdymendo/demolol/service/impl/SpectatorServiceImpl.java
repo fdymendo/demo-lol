@@ -19,10 +19,13 @@ public class SpectatorServiceImpl implements ISpectatorService {
 
 	private final AppVariables appVariables;
 	private final WebClient webClient;
+	private final UtilMethods utilMethods;
 
-	public SpectatorServiceImpl(AppVariables appVariables, WebClient webClient) {
+	public SpectatorServiceImpl(AppVariables appVariables, WebClient webClient,UtilMethods utilMethods) {
 		this.appVariables = appVariables;
 		this.webClient = webClient;
+		this.utilMethods = utilMethods;
+
 	}
 
 	@Override
@@ -35,7 +38,7 @@ public class SpectatorServiceImpl implements ISpectatorService {
 					if (response.statusCode().is2xxSuccessful()) {
 						return response.bodyToMono(CurrentGameInfo.class);
 					} else {
-						return UtilMethods.writeResposeApiRiotError(response);
+						return utilMethods.writeResposeApiRiotError(response);
 					}
 				});
 	}
@@ -48,7 +51,7 @@ public class SpectatorServiceImpl implements ISpectatorService {
 					if (response.statusCode().is2xxSuccessful()) {
 						return response.bodyToMono(FeaturedGames.class);
 					} else {
-						return UtilMethods.writeResposeApiRiotError(response);
+						return utilMethods.writeResposeApiRiotError(response);
 					}
 				});
 	}

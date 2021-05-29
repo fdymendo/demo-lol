@@ -17,7 +17,7 @@ import com.fdymendo.demolol.service.ISummonerService;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/v1/summoner/v4/summoners")
+@RequestMapping("/summoner/v1/summoner/v4/summoners")
 public class SummonerController {
 
 	@Autowired

@@ -43,5 +43,35 @@
     "name": "demo-lol.lol.path.status",
     "type": "java.lang.String",
     "description": "A description for 'demo-lol.lol.path.status'"
+  },
+  {
+    "name": "demo-lol.lol.path.league.challenger-leagues.queue",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.path.league.challenger-leagues.queue'"
+  },
+  {
+    "name": "demo-lol.lol.path.league.entries.entries",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.path.league.entries.entries'"
+  },
+  {
+    "name": "demo-lol.lol.path.league.entries.by-summoner",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.path.league.entries.by-summoner'"
+  },
+  {
+    "name": "demo-lol.lol.path.league.master-leagues.by-queue",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.path.league.master-leagues.by-queue'"
+  },
+  {
+    "name": "demo-lol.lol.path.league.grand-master-leagues.by-queue",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.path.league.grand-master-leagues.by-queue'"
+  },
+  {
+    "name": "demo-lol.lol.path.league.leagues",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.path.league.leagues'"
   }
 ]}
