@@ -13,7 +13,7 @@ import com.fdymendo.demolol.service.IStatusService;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/v1/lol/status/v4/")
+@RequestMapping("/status/v1/lol/status/v4/")
 public class StatusController {
 
 	private IStatusService iStatusService;
