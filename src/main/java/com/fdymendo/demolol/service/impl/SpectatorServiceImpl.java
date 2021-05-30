@@ -31,7 +31,7 @@ public class SpectatorServiceImpl implements ISpectatorService {
 	@Override
 	public Mono<Object> activeGamesBySummoner(Map<String, String> headers, String encryptedSummonerId)
 			throws ApplicationHandler {
-		return webClient.mutate().baseUrl(this.appVariables.generateUrlServerRiot(headers)).build().get()
+		return webClient.mutate().baseUrl(this.utilMethods.generateUrlServerRiot(headers)).build().get()
 				.uri(uriBuilder -> uriBuilder.path(appVariables.getPathSpectatorActiveGamesBySummoner())
 						.build(encryptedSummonerId))
 				.exchangeToMono(response -> {
@@ -45,7 +45,7 @@ public class SpectatorServiceImpl implements ISpectatorService {
 
 	@Override
 	public Mono<Object> featuredGames(Map<String, String> headers) throws ApplicationHandler {
-		return webClient.mutate().baseUrl(this.appVariables.generateUrlServerRiot(headers)).build().get()
+		return webClient.mutate().baseUrl(this.utilMethods.generateUrlServerRiot(headers)).build().get()
 				.uri(uriBuilder -> uriBuilder.path(appVariables.getPathSpectatorFeatureGames()).build())
 				.exchangeToMono(response -> {
 					if (response.statusCode().is2xxSuccessful()) {

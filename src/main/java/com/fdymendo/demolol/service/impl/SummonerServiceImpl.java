@@ -32,7 +32,7 @@ public class SummonerServiceImpl implements ISummonerService {
 	public Mono<Object> encryptedAccountId(Map<String, String> headers, String accountId)
 			throws ApplicationHandler, SSLException {
 
-		return webClient.mutate().baseUrl(this.appVariables.generateUrlServerRiot(headers)).build().get()
+		return webClient.mutate().baseUrl(this.utilMethods.generateUrlServerRiot(headers)).build().get()
 				.uri(uriBuilder -> uriBuilder.path(appVariables.getPathSummonerByAccount()).build(accountId))
 				.exchangeToMono(response -> {
 					if (response.statusCode().is2xxSuccessful()) {
@@ -45,7 +45,7 @@ public class SummonerServiceImpl implements ISummonerService {
 
 	@Override
 	public Mono<Object> summonerName(Map<String, String> headers, String summonerName) throws ApplicationHandler {
-		return webClient.mutate().baseUrl(this.appVariables.generateUrlServerRiot(headers)).build().get()
+		return webClient.mutate().baseUrl(this.utilMethods.generateUrlServerRiot(headers)).build().get()
 				.uri(uriBuilder -> uriBuilder.path(appVariables.getPathSummonerByName()).build(summonerName))
 				.exchangeToMono(response -> {
 					if (response.statusCode().is2xxSuccessful()) {
@@ -59,7 +59,7 @@ public class SummonerServiceImpl implements ISummonerService {
 
 	@Override
 	public Mono<Object> encryptedPUUID(Map<String, String> headers, String pUUID) throws ApplicationHandler {
-		return webClient.mutate().baseUrl(this.appVariables.generateUrlServerRiot(headers)).build().get()
+		return webClient.mutate().baseUrl(this.utilMethods.generateUrlServerRiot(headers)).build().get()
 				.uri(uriBuilder -> uriBuilder.path(appVariables.getPathSummonerByPuuid()).build(pUUID))
 				.exchangeToMono(response -> {
 					if (response.statusCode().is2xxSuccessful()) {

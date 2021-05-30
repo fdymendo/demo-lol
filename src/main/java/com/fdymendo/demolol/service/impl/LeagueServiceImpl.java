@@ -48,7 +48,7 @@ public class LeagueServiceImpl implements ILeagueService {
 			return Mono.error(
 					new ResponseStatusException(HttpStatus.BAD_REQUEST, RiotConstants.RIOT_MESSAGE_ERROR_NO_QUEUE));
 		}
-		return webClient.mutate().baseUrl(this.appVariables.generateUrlServerRiot(headers)).build().get()
+		return webClient.mutate().baseUrl(this.utilMethods.generateUrlServerRiot(headers)).build().get()
 				.uri(uriBuilder -> uriBuilder.path(appVariables.getPathLeagueChallengerQueue()).build(queue))
 				.exchangeToMono(response -> {
 					if (response.statusCode().is2xxSuccessful()) {
@@ -62,7 +62,7 @@ public class LeagueServiceImpl implements ILeagueService {
 	@Override
 	public Mono<Object> entriesBySummoner(Map<String, String> headers, String encryptedSummonerId)
 			throws ApplicationHandler {
-		return webClient.mutate().baseUrl(this.appVariables.generateUrlServerRiot(headers)).build().get().uri(
+		return webClient.mutate().baseUrl(this.utilMethods.generateUrlServerRiot(headers)).build().get().uri(
 				uriBuilder -> uriBuilder.path(appVariables.getPathLeagueEntriesBySummoner()).build(encryptedSummonerId))
 				.exchangeToMono(response -> {
 					if (response.statusCode().is2xxSuccessful()) {
@@ -94,7 +94,7 @@ public class LeagueServiceImpl implements ILeagueService {
 		}
 		Map<String, String> params = Map.of(RiotConstants.RIOT_LEAGUE_ENTRIES_QUEUE, queue,
 				RiotConstants.RIOT_LEAGUE_ENTRIES_TIER, tier, RiotConstants.RIOT_LEAGUE_ENTRIES_DIVISION, division);
-		return webClient.mutate().baseUrl(this.appVariables.generateUrlServerRiot(headers)).build().get()
+		return webClient.mutate().baseUrl(this.utilMethods.generateUrlServerRiot(headers)).build().get()
 				.uri(uriBuilder -> uriBuilder.path(appVariables.getPathLeagueEntries())
 						.queryParam(RiotConstants.RIOT_LEAGUE_ENTRIES_PAGE, page).build(params))
 				.exchangeToMono(response -> {
@@ -124,7 +124,7 @@ public class LeagueServiceImpl implements ILeagueService {
 			return Mono.error(
 					new ResponseStatusException(HttpStatus.BAD_REQUEST, RiotConstants.RIOT_MESSAGE_ERROR_NO_QUEUE));
 		}
-		return webClient.mutate().baseUrl(this.appVariables.generateUrlServerRiot(headers)).build().get()
+		return webClient.mutate().baseUrl(this.utilMethods.generateUrlServerRiot(headers)).build().get()
 				.uri(uriBuilder -> uriBuilder.path(appVariables.getPathLeagueGrandMasterByQueue()).build(queue))
 				.exchangeToMono(response -> {
 					if (response.statusCode().is2xxSuccessful()) {
@@ -137,7 +137,7 @@ public class LeagueServiceImpl implements ILeagueService {
 
 	@Override
 	public Mono<Object> leagues(Map<String, String> headers, String leagueId) throws ApplicationHandler {
-		return webClient.mutate().baseUrl(this.appVariables.generateUrlServerRiot(headers)).build().get()
+		return webClient.mutate().baseUrl(this.utilMethods.generateUrlServerRiot(headers)).build().get()
 				.uri(uriBuilder -> uriBuilder.path(appVariables.getPathLeagueLeagues()).build(leagueId))
 				.exchangeToMono(response -> {
 					if (response.statusCode().is2xxSuccessful()) {
@@ -154,7 +154,7 @@ public class LeagueServiceImpl implements ILeagueService {
 			return Mono.error(
 					new ResponseStatusException(HttpStatus.BAD_REQUEST, RiotConstants.RIOT_MESSAGE_ERROR_NO_QUEUE));
 		}
-		return webClient.mutate().baseUrl(this.appVariables.generateUrlServerRiot(headers)).build().get()
+		return webClient.mutate().baseUrl(this.utilMethods.generateUrlServerRiot(headers)).build().get()
 				.uri(uriBuilder -> uriBuilder.path(appVariables.getPathLeagueMasterLeaguesByQueue()).build(queue))
 				.exchangeToMono(response -> {
 					if (response.statusCode().is2xxSuccessful()) {

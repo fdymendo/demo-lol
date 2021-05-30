@@ -2,25 +2,41 @@ package com.fdymendo.demolol.util;
 
 import java.util.Map;
 
+import org.springframework.context.annotation.Configuration;
 import org.springframework.http.HttpStatus;
-import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.ClientResponse;
 import org.springframework.web.server.ResponseStatusException;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fdymendo.demolol.handler.ApplicationHandler;
 
 import lombok.extern.log4j.Log4j2;
 import reactor.core.publisher.Mono;
 
 @Log4j2
-@Service
+@Configuration
 public class UtilMethods {
 
 	private final ObjectMapper objectMapper;
+	private final AppVariables appVariables;
 
-	public UtilMethods(ObjectMapper objectMapper) {
+	public UtilMethods(AppVariables appVariables, ObjectMapper objectMapper) {
+		this.appVariables = appVariables;
 		this.objectMapper = objectMapper;
+	}
+
+	public String generateUrlServerRiot(Map<String, String> headers) throws ApplicationHandler {
+		String urlServerRiot = "";
+		switch (headers.getOrDefault(AppConstants.HTTP_HEADER_SERVER_RIOT, "")) {
+		case RiotConstants.RIOT_SERVER_LAN:
+			urlServerRiot = appVariables.getLa1UrlServer();
+			break;
+
+		default:
+			throw new ApplicationHandler(AppConstants.ERROR_SERVER_RIOT);
+		}
+		return urlServerRiot;
 	}
 
 	public Mono<Object> writeResposeApiRiotError(ClientResponse clientResponse) {

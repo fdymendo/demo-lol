@@ -26,6 +26,14 @@ demo-lol:
           by-queue: /lol/league/v4/grandmasterleagues/by-queue/{queue}
         leagues:  /lol/league/v4/leagues/{leagueId}
         master-leagues:
-          by-queue: /lol/league/v4/masterleagues/by-queue/{queue}        
+          by-queue: /lol/league/v4/masterleagues/by-queue/{queue}
+      clash:
+        players:
+          by-summoner: /lol/clash/v1/players/by-summoner/{summonerId}
+        teams: /lol/clash/v1/teams/{teamId}
+        tournaments:
+          tournaments: /lol/clash/v1/tournaments
+          by-team: /lol/clash/v1/tournaments/by-team/{teamId}
+          tournament-id: /lol/clash/v1/tournaments/{tournamentId}
   la1:
     url: https://la1.api.riotgames.com
