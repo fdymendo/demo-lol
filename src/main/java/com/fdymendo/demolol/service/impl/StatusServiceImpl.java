@@ -29,7 +29,7 @@ public class StatusServiceImpl implements IStatusService {
 
 	@Override
 	public Mono<Object> status(Map<String, String> headers) throws ApplicationHandler {
-		return webClient.mutate().baseUrl(this.appVariables.generateUrlServerRiot(headers)).build().get()
+		return webClient.mutate().baseUrl(this.utilMethods.generateUrlServerRiot(headers)).build().get()
 				.uri(uriBuilder -> uriBuilder.path(appVariables.getPathStatus()).build()).exchangeToMono(response -> {
 					if (response.statusCode().is2xxSuccessful()) {
 						return response.bodyToMono(PlatformDataDto.class);
