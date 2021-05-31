@@ -18,26 +18,19 @@ import com.fdymendo.demolol.util.AppConstants;
 import com.fdymendo.demolol.util.AppVariables;
 import com.fdymendo.demolol.util.UtilMethods;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import reactor.core.publisher.Mono;
 
 @Log4j2
 @Service
+@RequiredArgsConstructor
 public class ClashServiceImpl implements IClashService {
 
 	private final AppVariables appVariables;
 	private final WebClient webClient;
 	private final UtilMethods utilMethods;
 	private final ObjectMapper objectMapper;
-
-	public ClashServiceImpl(AppVariables appVariables, WebClient webClient, UtilMethods utilMethods,
-			ObjectMapper objectMapper) {
-		this.appVariables = appVariables;
-		this.webClient = webClient;
-		this.utilMethods = utilMethods;
-		this.objectMapper = objectMapper;
-
-	}
 
 	@Override
 	public Mono<Object> playersBySummoner(Map<String, String> headers, String summonerId) throws ApplicationHandler {

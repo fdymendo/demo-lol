@@ -3,28 +3,27 @@ package com.fdymendo.demolol.controller;
 import java.util.Map;
 
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fdymendo.demolol.handler.ApplicationHandler;
 import com.fdymendo.demolol.service.ISpectatorService;
 
+import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/spectator/v1/lol/spectator/v4")
+@RequiredArgsConstructor
+@RequestMapping("/spectator/v1/spectator/")
 public class SpectatorController {
+	
 	private final ISpectatorService iSpectatorService;
 
-	public SpectatorController(ISpectatorService iSpectatorService) {
-		this.iSpectatorService = iSpectatorService;
-	}
-
-	@GetMapping("/active-games/by-summoner")
+	@GetMapping("/active-games/by-summoner/{encryptedSummonerId}")
 	public Mono<Object> getActiveGameBySummoner(@RequestHeader Map<String, String> headers,
-			@RequestParam("encryptedSummonerId") String encryptedSummonerId) throws ApplicationHandler {
+			@PathVariable("encryptedSummonerId") String encryptedSummonerId) throws ApplicationHandler {
 		return iSpectatorService.activeGamesBySummoner(headers, encryptedSummonerId);
 	}
 

@@ -98,5 +98,25 @@
     "name": "demo-lol.lol.path.clash.tournaments.tournament-id",
     "type": "java.lang.String",
     "description": "A description for 'demo-lol.lol.path.clash.tournaments.tournament-id'"
+  },
+  {
+    "name": "demo-lol.lol.path.champion-mastery.by-summoner.encripted-summoner-id",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.path.champion-mastery.by-summoner.encripted-summoner-id'"
+  },
+  {
+    "name": "demo-lol.lol.path.champion-mastery.by-summoner.by-champion",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.path.champion-mastery.by-summoner.by-champion'"
+  },
+  {
+    "name": "demo-lol.lol.path.champion-mastery.scores.by-summoner",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.path.champion-mastery.scores.by-summoner'"
+  },
+  {
+    "name": "demo-lol.lol.path.summoner.summoners",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.path.summoner.summoners'"
   }
 ]}
