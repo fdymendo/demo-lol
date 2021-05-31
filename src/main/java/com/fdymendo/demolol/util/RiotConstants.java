@@ -38,6 +38,8 @@ public class RiotConstants {
 	public static final String RIOT_LEAGUE_ENTRIES_TIER = "tier";
 	public static final String RIOT_LEAGUE_ENTRIES_DIVISION = "division";
 	public static final String RIOT_LEAGUE_ENTRIES_PAGE = "page";
+	public static final String RIOT_LEAGUE_ENTRIES_SUMMONER_ID = "encryptedSummonerId";
+	public static final String RIOT_LEAGUE_ENTRIES_CHAMPION_ID = "championId";
 	// Queue
 	public static final String RIOT_RANKED_SOLO_5X5 = "RANKED_SOLO_5x5";
 	public static final String RIOT_RANKED_FLEX_SR = "RANKED_FLEX_SR";

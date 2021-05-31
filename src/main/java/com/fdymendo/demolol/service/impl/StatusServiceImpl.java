@@ -11,21 +11,16 @@ import com.fdymendo.demolol.service.IStatusService;
 import com.fdymendo.demolol.util.AppVariables;
 import com.fdymendo.demolol.util.UtilMethods;
 
+import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Mono;
 
 @Service
+@RequiredArgsConstructor
 public class StatusServiceImpl implements IStatusService {
 
 	private final AppVariables appVariables;
 	private final WebClient webClient;
 	private final UtilMethods utilMethods;
-
-	public StatusServiceImpl(AppVariables appVariables, WebClient webClient,UtilMethods utilMethods) {
-		this.appVariables = appVariables;
-		this.webClient = webClient;
-		this.utilMethods = utilMethods;
-
-	}
 
 	@Override
 	public Mono<Object> status(Map<String, String> headers) throws ApplicationHandler {

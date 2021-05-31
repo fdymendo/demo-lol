@@ -12,21 +12,16 @@ import com.fdymendo.demolol.service.ISpectatorService;
 import com.fdymendo.demolol.util.AppVariables;
 import com.fdymendo.demolol.util.UtilMethods;
 
+import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Mono;
 
 @Service
+@RequiredArgsConstructor
 public class SpectatorServiceImpl implements ISpectatorService {
 
 	private final AppVariables appVariables;
 	private final WebClient webClient;
 	private final UtilMethods utilMethods;
-
-	public SpectatorServiceImpl(AppVariables appVariables, WebClient webClient,UtilMethods utilMethods) {
-		this.appVariables = appVariables;
-		this.webClient = webClient;
-		this.utilMethods = utilMethods;
-
-	}
 
 	@Override
 	public Mono<Object> activeGamesBySummoner(Map<String, String> headers, String encryptedSummonerId)

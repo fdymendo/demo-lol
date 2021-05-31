@@ -20,6 +20,9 @@ public class AppVariables {
 	private String pathSummonerByName;
 	@Value("${demo-lol.lol.path.summoner.by-puuid}")
 	private String pathSummonerByPuuid;
+	@Value("${demo-lol.lol.path.summoner.summoners}")
+	private String pathSummonerSummoners;
+	//champion
 	@Value("${demo-lol.lol.path.rotations}")
 	private String pathRotations;
 	// spectator
@@ -54,5 +57,12 @@ public class AppVariables {
 	private String pathClashTournamentsByTeam;
 	@Value("${demo-lol.lol.path.clash.tournaments.tournament-id}")
 	private String pathClashTournamentsTournamentId;
-
+	//champion-mistery
+	@Value("${demo-lol.lol.path.champion-mastery.by-summoner.encripted-summoner-id}")
+	private String pathChampionMasteryBySummonerEncriptedSummonerId;
+	@Value("${demo-lol.lol.path.champion-mastery.by-summoner.by-champion}")
+	private String pathChampionMasteryBySummoneByChampion;
+	@Value("${demo-lol.lol.path.champion-mastery.scores.by-summoner}")
+	private String pathChampionMasteryScoreBySummoner;
+	
 }

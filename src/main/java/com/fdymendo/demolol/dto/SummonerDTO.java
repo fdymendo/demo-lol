@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @JsonInclude(Include.NON_NULL)
-public class SummonerResponse {
+public class SummonerDTO {
 
 	private String accountId;
 	private Integer profileIconId;

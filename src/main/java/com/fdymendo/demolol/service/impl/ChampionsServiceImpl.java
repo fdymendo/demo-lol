@@ -10,19 +10,15 @@ import com.fdymendo.demolol.handler.ApplicationHandler;
 import com.fdymendo.demolol.service.IChampionsService;
 import com.fdymendo.demolol.util.UtilMethods;
 
+import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Mono;
 
 @Service
+@RequiredArgsConstructor
 public class ChampionsServiceImpl implements IChampionsService {
 
 	private final WebClient webClient;
 	private final UtilMethods utilMethods;
-
-	public ChampionsServiceImpl(WebClient webClient, UtilMethods utilMethods) {
-		this.webClient = webClient;
-		this.utilMethods = utilMethods;
-
-	}
 
 	@Override
 	public Mono<Object> rotations(Map<String, String> headers) throws ApplicationHandler {

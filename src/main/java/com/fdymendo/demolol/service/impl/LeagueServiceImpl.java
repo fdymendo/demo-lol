@@ -21,11 +21,13 @@ import com.fdymendo.demolol.util.AppVariables;
 import com.fdymendo.demolol.util.RiotConstants;
 import com.fdymendo.demolol.util.UtilMethods;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import reactor.core.publisher.Mono;
 
 @Log4j2
 @Service
+@RequiredArgsConstructor
 public class LeagueServiceImpl implements ILeagueService {
 
 	private final AppVariables appVariables;
@@ -33,18 +35,9 @@ public class LeagueServiceImpl implements ILeagueService {
 	private final UtilMethods utilMethods;
 	private final ObjectMapper objectMapper;
 
-	public LeagueServiceImpl(AppVariables appVariables, WebClient webClient, UtilMethods utilMethods,
-			ObjectMapper objectMapper) {
-		this.appVariables = appVariables;
-		this.webClient = webClient;
-		this.utilMethods = utilMethods;
-		this.objectMapper = objectMapper;
-
-	}
-
 	@Override
 	public Mono<Object> challengerLeaguesByQueue(Map<String, String> headers, String queue) throws ApplicationHandler {
-		if (utilMethods.validateQueue(queue)) {
+		if (!utilMethods.validateQueue(queue)) {
 			return Mono.error(
 					new ResponseStatusException(HttpStatus.BAD_REQUEST, RiotConstants.RIOT_MESSAGE_ERROR_NO_QUEUE));
 		}

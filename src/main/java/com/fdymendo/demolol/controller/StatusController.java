@@ -10,17 +10,15 @@ import org.springframework.web.bind.annotation.RestController;
 import com.fdymendo.demolol.handler.ApplicationHandler;
 import com.fdymendo.demolol.service.IStatusService;
 
+import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("/status/v1/lol/status/v4/")
+@RequiredArgsConstructor
+@RequestMapping("/status/v1/status/")
 public class StatusController {
 
-	private IStatusService iStatusService;
-
-	public StatusController(IStatusService iStatusService) {
-		this.iStatusService = iStatusService;
-	}
+	private final IStatusService iStatusService;
 
 	@GetMapping("platform-data")
 	public Mono<Object> getStatus(@RequestHeader Map<String, String> headers) throws ApplicationHandler {
