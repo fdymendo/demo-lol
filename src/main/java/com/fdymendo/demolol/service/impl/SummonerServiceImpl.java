@@ -2,80 +2,79 @@ package com.fdymendo.demolol.service.impl;
 
 import java.util.Map;
 
-import org.springframework.http.HttpStatus;
+import javax.net.ssl.SSLException;
+
 import org.springframework.stereotype.Service;
 import org.springframework.web.reactive.function.client.WebClient;
 
-import com.fdymendo.demolol.handler.ErrorClass;
-import com.fdymendo.demolol.model.SummonerResponse;
+import com.fdymendo.demolol.dto.SummonerDTO;
+import com.fdymendo.demolol.handler.ApplicationHandler;
 import com.fdymendo.demolol.service.ISummonerService;
-import com.fdymendo.demolol.util.AppConstants;
 import com.fdymendo.demolol.util.AppVariables;
 import com.fdymendo.demolol.util.UtilMethods;
 
+import lombok.RequiredArgsConstructor;
 import reactor.core.publisher.Mono;
 
 @Service
+@RequiredArgsConstructor
 public class SummonerServiceImpl implements ISummonerService {
 
 	private final AppVariables appVariables;
+	private final WebClient webClient;
+	private final UtilMethods utilMethods;
 
-	public SummonerServiceImpl(AppVariables appVariables) {
-		this.appVariables = appVariables;
-	}
-	
 	@Override
-	public Mono<Object> encryptedAccountId(Map<String, String> headers, String accountId) throws ErrorClass {
-		WebClient webClient = WebClient.create(this.appVariables.generateUrlServerRiot(headers));
-		return webClient.get()
-				.uri(uriBuilder -> uriBuilder.path(appVariables.getUrlSummonerByAccount()).build(accountId))
-				.headers(headersClient -> {
-					headersClient.add(AppConstants.HTTP_HEADER_R_ACCEPT_CHARSET,
-							AppConstants.HTTP_HEADER_R_ACCEPT_CHARSET_V);
-					headersClient.add(AppConstants.HTTP_HEADER_TOKEN, this.appVariables.getToken());
-				}).exchangeToMono(response -> {
-					if (response.statusCode().equals(HttpStatus.OK)) {
-						return response.bodyToMono(SummonerResponse.class);
+	public Mono<Object> encryptedAccountId(Map<String, String> headers, String encryptedAccountId)
+			throws ApplicationHandler, SSLException {
+
+		return webClient.mutate().baseUrl(this.utilMethods.generateUrlServerRiot(headers)).build().get()
+				.uri(uriBuilder -> uriBuilder.path(appVariables.getPathSummonerByAccount()).build(encryptedAccountId))
+				.exchangeToMono(response -> {
+					if (response.statusCode().is2xxSuccessful()) {
+						return response.bodyToMono(SummonerDTO.class);
 					} else {
-						return UtilMethods.writeResposeApiRiotError(response);
+						return utilMethods.writeResposeApiRiotError(response);
 					}
 				});
 	}
-	
+
 	@Override
-	public Mono<Object> summonerName(Map<String, String> headers, String summonerName) throws ErrorClass {
-		WebClient webClient = WebClient.create(this.appVariables.generateUrlServerRiot(headers));
-		return webClient.get()
-				.uri(uriBuilder -> uriBuilder.path(appVariables.getUrlSummonerByName()).build(summonerName))
-				.headers(headersClient -> {
-					headersClient.add(AppConstants.HTTP_HEADER_R_ACCEPT_CHARSET,
-							AppConstants.HTTP_HEADER_R_ACCEPT_CHARSET_V);
-					headersClient.add(AppConstants.HTTP_HEADER_TOKEN, this.appVariables.getToken());
-				}).exchangeToMono(response -> {
-					if (response.statusCode().equals(HttpStatus.OK)) {
-						return response.bodyToMono(SummonerResponse.class);
+	public Mono<Object> summonerName(Map<String, String> headers, String summonerName) throws ApplicationHandler {
+		return webClient.mutate().baseUrl(this.utilMethods.generateUrlServerRiot(headers)).build().get()
+				.uri(uriBuilder -> uriBuilder.path(appVariables.getPathSummonerByName()).build(summonerName))
+				.exchangeToMono(response -> {
+					if (response.statusCode().is2xxSuccessful()) {
+						return response.bodyToMono(SummonerDTO.class);
 					} else {
-						return UtilMethods.writeResposeApiRiotError(response);
+						return utilMethods.writeResposeApiRiotError(response);
 					}
 				});
 
 	}
 
-	
 	@Override
-	public Mono<Object> encryptedPUUID(Map<String, String> headers, String pUUID) throws ErrorClass {
-		WebClient webClient = WebClient.create(this.appVariables.generateUrlServerRiot(headers));
-		return webClient.get()
-				.uri(uriBuilder -> uriBuilder.path(appVariables.getUrlSummonerByPuuid()).build(pUUID))
-				.headers(headersClient -> {
-					headersClient.add(AppConstants.HTTP_HEADER_R_ACCEPT_CHARSET,
-							AppConstants.HTTP_HEADER_R_ACCEPT_CHARSET_V);
-					headersClient.add(AppConstants.HTTP_HEADER_TOKEN, this.appVariables.getToken());
-				}).exchangeToMono(response -> {
-					if (response.statusCode().equals(HttpStatus.OK)) {
-						return response.bodyToMono(SummonerResponse.class);
+	public Mono<Object> encryptedPUUID(Map<String, String> headers, String encryptedPUUID) throws ApplicationHandler {
+		return webClient.mutate().baseUrl(this.utilMethods.generateUrlServerRiot(headers)).build().get()
+				.uri(uriBuilder -> uriBuilder.path(appVariables.getPathSummonerByPuuid()).build(encryptedPUUID))
+				.exchangeToMono(response -> {
+					if (response.statusCode().is2xxSuccessful()) {
+						return response.bodyToMono(SummonerDTO.class);
 					} else {
-						return UtilMethods.writeResposeApiRiotError(response);
+						return utilMethods.writeResposeApiRiotError(response);
+					}
+				});
+	}
+
+	@Override
+	public Mono<Object> summoners(Map<String, String> headers, String encryptedSummonerId) throws ApplicationHandler {
+		return webClient.mutate().baseUrl(this.utilMethods.generateUrlServerRiot(headers)).build().get()
+				.uri(uriBuilder -> uriBuilder.path(appVariables.getPathSummonerSummoners()).build(encryptedSummonerId))
+				.exchangeToMono(response -> {
+					if (response.statusCode().is2xxSuccessful()) {
+						return response.bodyToMono(SummonerDTO.class);
+					} else {
+						return utilMethods.writeResposeApiRiotError(response);
 					}
 				});
 	}

@@ -6,8 +6,8 @@ import com.fdymendo.demolol.handler.ApplicationHandler;
 
 import reactor.core.publisher.Mono;
 
-public interface IChampionsService {
+public interface IStatusService {
 
-	Mono<Object> rotations(Map<String, String> headers) throws ApplicationHandler;
-	
+	Mono<Object> status(Map<String, String> headers) throws ApplicationHandler;
+
 }

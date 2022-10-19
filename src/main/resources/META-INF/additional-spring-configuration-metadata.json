@@ -1,37 +1,122 @@
 {"properties": [
   {
+    "name": "demo-lol.lol.path.summoner.by-name",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.path.summoner.by-name'"
+  },
+  {
     "name": "demo-lol.lol.apikey",
     "type": "java.lang.String",
     "description": "A description for 'demo-lol.lol.apikey'"
   },
   {
-    "name": "demo-lol.lol.summoner.by-name",
+    "name": "demo-lol.lol.path.rotations",
     "type": "java.lang.String",
-    "description": "A description for 'demo-lol.lol.summoner.by-name'"
+    "description": "A description for 'demo-lol.lol.path.rotations'"
   },
   {
-    "name": "demo-lol.lol.rotations",
+    "name": "demo-lol.lol.path.summoner.by-account",
     "type": "java.lang.String",
-    "description": "A description for 'demo-lol.lol.rotations'"
+    "description": "A description for 'demo-lol.lol.path.summoner.by-account'"
   },
   {
-    "name": "demo-lol.lol.ip",
+    "name": "demo-lol.lol.path.summoner.by-puuid",
     "type": "java.lang.String",
-    "description": "A description for 'demo-lol.lol.ip'"
+    "description": "A description for 'demo-lol.lol.path.summoner.by-puuid'"
   },
   {
-    "name": "demo-lol.lol.la1.url",
+    "name": "demo-lol.la1.url",
     "type": "java.lang.String",
-    "description": "A description for 'demo-lol.lol.la1.url'"
+    "description": "A description for 'demo-lol.la1.url'"
   },
   {
-    "name": "demo-lol.lol.summoner.by-puuid",
+    "name": "demo-lol.lol.path.spectator.active-games.by-summoner",
     "type": "java.lang.String",
-    "description": "A description for 'demo-lol.lol.summoner.by-puuid'"
+    "description": "A description for 'demo-lol.lol.path.spectator.active-games.by-summoner'"
   },
   {
-    "name": "demo-lol.lol.summoner.by-account",
+    "name": "demo-lol.lol.path.spectator.featured-games",
     "type": "java.lang.String",
-    "description": "A description for 'demo-lol.lol.summoner.by-account'"
+    "description": "A description for 'demo-lol.lol.path.spectator.featured-games'"
+  },
+  {
+    "name": "demo-lol.lol.path.status",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.path.status'"
+  },
+  {
+    "name": "demo-lol.lol.path.league.challenger-leagues.queue",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.path.league.challenger-leagues.queue'"
+  },
+  {
+    "name": "demo-lol.lol.path.league.entries.entries",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.path.league.entries.entries'"
+  },
+  {
+    "name": "demo-lol.lol.path.league.entries.by-summoner",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.path.league.entries.by-summoner'"
+  },
+  {
+    "name": "demo-lol.lol.path.league.master-leagues.by-queue",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.path.league.master-leagues.by-queue'"
+  },
+  {
+    "name": "demo-lol.lol.path.league.grand-master-leagues.by-queue",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.path.league.grand-master-leagues.by-queue'"
+  },
+  {
+    "name": "demo-lol.lol.path.league.leagues",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.path.league.leagues'"
+  },
+  {
+    "name": "demo-lol.lol.path.clash.tournaments.tournaments",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.path.clash.tournaments.tournaments'"
+  },
+  {
+    "name": "demo-lol.lol.path.clash.players.by-summoner",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.path.clash.players.by-summoner'"
+  },
+  {
+    "name": "demo-lol.lol.path.clash.teams",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.path.clash.teams'"
+  },
+  {
+    "name": "demo-lol.lol.path.clash.tournaments.by-team",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.path.clash.tournaments.by-team'"
+  },
+  {
+    "name": "demo-lol.lol.path.clash.tournaments.tournament-id",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.path.clash.tournaments.tournament-id'"
+  },
+  {
+    "name": "demo-lol.lol.path.champion-mastery.by-summoner.encripted-summoner-id",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.path.champion-mastery.by-summoner.encripted-summoner-id'"
+  },
+  {
+    "name": "demo-lol.lol.path.champion-mastery.by-summoner.by-champion",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.path.champion-mastery.by-summoner.by-champion'"
+  },
+  {
+    "name": "demo-lol.lol.path.champion-mastery.scores.by-summoner",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.path.champion-mastery.scores.by-summoner'"
+  },
+  {
+    "name": "demo-lol.lol.path.summoner.summoners",
+    "type": "java.lang.String",
+    "description": "A description for 'demo-lol.lol.path.summoner.summoners'"
   }
 ]}

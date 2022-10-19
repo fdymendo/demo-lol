@@ -1,0 +1,46 @@
+server:
+  port: 8080
+  error:
+    include-message: always
+demo-lol:
+  lol:
+    apikey: RGAPI-372ffe52-0fa9-4891-99dd-2ac319909ffe
+    path:
+      rotations: /lol/platform/v3/champion-rotations
+      summoner:
+        by-account: /lol/summoner/v4/summoners/by-account/{encryptedAccountId}
+        by-name: /lol/summoner/v4/summoners/by-name/{summonerName}
+        by-puuid: /lol/summoner/v4/summoners/by-puuid/{encryptedPUUID}
+        summoners: /lol/summoner/v4/summoners/{encryptedSummonerId}
+      spectator:
+        active-games:
+          by-summoner: /lol/spectator/v4/active-games/by-summoner/{encryptedSummonerId}
+        featured-games: /lol/spectator/v4/featured-games
+      status: /lol/status/v4/platform-data
+      league:
+        challenger-leagues:
+          queue: /lol/league/v4/challengerleagues/by-queue/{queue}
+        entries: 
+          entries: /lol/league/v4/entries/{queue}/{tier}/{division}
+          by-summoner: /lol/league/v4/entries/by-summoner/{encryptedSummonerId}
+        grand-master-leagues:
+          by-queue: /lol/league/v4/grandmasterleagues/by-queue/{queue}
+        leagues:  /lol/league/v4/leagues/{leagueId}
+        master-leagues:
+          by-queue: /lol/league/v4/masterleagues/by-queue/{queue}
+      clash:
+        players:
+          by-summoner: /lol/clash/v1/players/by-summoner/{summonerId}
+        teams: /lol/clash/v1/teams/{teamId}
+        tournaments:
+          tournaments: /lol/clash/v1/tournaments
+          by-team: /lol/clash/v1/tournaments/by-team/{teamId}
+          tournament-id: /lol/clash/v1/tournaments/{tournamentId}
+      champion-mastery:
+        by-summoner:
+          encripted-summoner-id: /lol/champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}
+          by-champion: /lol/champion-mastery/v4/champion-masteries/by-summoner/{encryptedSummonerId}/by-champion/{championId}
+        scores:
+          by-summoner: /lol/champion-mastery/v4/scores/by-summoner/{encryptedSummonerId}
+  la1:
+    url: https://la1.api.riotgames.com

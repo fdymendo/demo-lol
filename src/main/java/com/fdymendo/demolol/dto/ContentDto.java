@@ -1,4 +1,4 @@
-package com.fdymendo.demolol.model;
+package com.fdymendo.demolol.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
@@ -9,10 +9,9 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @JsonInclude(Include.NON_NULL)
-public class RotationsResponse {
+public class ContentDto {
 
-	private String freeChampionIds[];
-	private String freeChampionIdsForNewPlayers[];
-	private Integer maxNewPlayerLevel;
+	private String locale;
+	private String content;
 
 }
